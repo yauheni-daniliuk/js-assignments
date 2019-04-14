@@ -39,6 +39,12 @@ function findElement(arr, value) {
  */
 function generateOdds(len) {
    throw new Error('Not implemented');
+   /*let result = [];
+   return result.filter(function(index) {
+      result.length = len;
+      result.push(index[0] = 1);
+      result.push(index[len-1] = index[len-2] + 2);
+   });*/
 }
 
 
@@ -107,9 +113,11 @@ function getArrayOfStrings(arr) {
  */
 function removeFalsyValues(arr) {
    throw new Error('Not implemented');
-   //return arr.filter(function(noFalse) {
-   //   return noFalse != false;
-   //});
+   /*return arr.filter(function(noFalse) {
+      if (noFalse !== false && !isNaN(noFalse)) {  
+      return noFalse;
+      }
+   });*/
 }
 
 /**
@@ -210,6 +218,12 @@ function getTail(arr, n) {
  */
 function toCsvText(arr) {
    throw new Error('Not implemented');
+   /*let first = `${arr[0].join()}\n`, 
+   second = `${arr[1].join()}\n`, 
+   third = `${arr[2].join()}\n`, 
+   fourth = `${arr[3].join()}`;
+
+   return first + second + third + fourth;*/
 }
 
 /**
@@ -244,6 +258,9 @@ function toArrayOfSquares(arr) {
  */
 function getMovingSum(arr) {
    throw new Error('Not implemented');
+   /*return arr.map(function(sum, previous, current){ 
+      return sum;
+   });*/
 }
 
 /**
@@ -259,9 +276,7 @@ function getMovingSum(arr) {
  */
 function getSecondItems(arr) {
    throw new Error('Not implemented');
-   //return arr.filter(function(item) {
-   //   return item + 1;
-   //});
+   //return arr.filter(arr[index] => arr[(arr.indexOf(arr[index]) + 1) % 2 == 0]);
 }
 
 
@@ -298,7 +313,12 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-   throw new Error('Not implemented');
+   arr = arr.reverse();
+   if (arr.length < 3) {
+      return arr;
+   } else {
+      return arr.slice(0, 3);
+   }
 }
  
  
@@ -349,7 +369,9 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-   throw new Error('Not implemented');
+   return arr.reduce(function(sum, current) {
+      return sum + current;
+    }, 0);
 }
  
 /** 
