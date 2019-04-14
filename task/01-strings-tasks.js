@@ -99,7 +99,7 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
-    throw new Error('Not implemented');
+    return value.trim();
 }
 
 /**
@@ -130,7 +130,7 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-    throw new Error('Not implemented');
+    return str.replace(value, '');
 }
 
 /**
@@ -145,7 +145,7 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-    throw new Error('Not implemented');
+    return str.replace(/^<|>$/g, '');
 }
 
 
@@ -201,7 +201,14 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    throw new Error('Not implemented');
+    let realWidth = width - 2,
+    line = '─'.repeat(realWidth),
+    space = ' '.repeat(realWidth),
+    top = `┌${line}┐\n`,
+    bottom = `└${line}┘\n`,
+    center = `│${space}│\n`.repeat(height - 2);
+ 
+    return top + center + bottom;
 }
 
 
@@ -221,7 +228,13 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-    throw new Error('Not implemented');
+    const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+        output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+ 
+  return str.split('').map(ch => {
+    let index = input.indexOf(ch);
+    return index === -1 ? ch : output[index];
+  }).join('');
 }
 
 /**
@@ -238,7 +251,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-    throw new Error('Not implemented');
+    return typeof value === 'string' || value instanceof String;
 }
 
 
@@ -267,7 +280,13 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
+    const colors = '♣♦♥♠',
+    ranks = 'A234567891JQK';
+
+    let color = value[value.length - 1],
+    num = value[0];
+ 
+  return colors.indexOf(color) * 13 + ranks.indexOf(num);
 }
 
 
